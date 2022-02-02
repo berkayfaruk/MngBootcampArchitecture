@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Transmission:Entity
+    public class Transmission : Entity
     {
         public Transmission()
         {
@@ -21,6 +21,7 @@ namespace Domain.Entities
         }
 
         public string Name { get; set; }
-        public ICollection<Model> Models { get; set; }
+        public virtual ICollection<Model> Models { get; set; }
+
     }
 }

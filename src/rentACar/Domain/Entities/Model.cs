@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Model:Entity
+    public class Model : Entity
     {
         public Model()
         {
         }
-        public Model(int ıd, string name, double dailyPrice, int transmissionTypeId, int fuelTypeId, int brandId, string ımageUrl):this()
+
+        public Model(int id, string name, double dailyPrice, int transmissionId, int fuelId, int brandId, string imageUrl) : this()
         {
-            Id = ıd;
+            Id = id;
             Name = name;
             DailyPrice = dailyPrice;
-            TransmissionId = transmissionTypeId;
-            FuelId = fuelTypeId;
+            TransmissionId = transmissionId;
+            FuelId = fuelId;
             BrandId = brandId;
-            ImageUrl = ımageUrl;
+            ImageUrl = imageUrl;
         }
         public int TransmissionId { get; set; }
         public int FuelId { get; set; }

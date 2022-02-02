@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace Core.Persistence.Repositories
 {
-    public class GenericRepository<TEntity, TContext> :IGenericRepository<TEntity> where TEntity : class, new() where TContext : DbContext, new()
+    //Bu sınıf asenkron repository'e alternatif olarak yazılmıştır. Eksikleri var daha düzelteceğim 
+    public class GenericRepository<TEntity, TContext> :IRepository<TEntity> where TEntity : class, new() where TContext : DbContext, new()
     {
         public GenericRepository(TContext context)
         {
@@ -57,6 +58,16 @@ namespace Core.Persistence.Repositories
             }
         }
 
+        public IPaginate<TEntity> GetList(Expression<Func<TEntity, bool>> predicate = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null, int index = 0, int size = 10, bool enableTracking = true, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<TEntity> Query()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(TEntity entity)
         {
             using (TContext context = new TContext())
@@ -65,6 +76,11 @@ namespace Core.Persistence.Repositories
                 updatedEntity.State = EntityState.Modified;
                 context.SaveChanges();
             }
+        }
+
+        TEntity IRepository<TEntity>.Add(TEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

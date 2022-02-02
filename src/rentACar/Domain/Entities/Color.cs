@@ -16,12 +16,12 @@ namespace Domain.Entities
 
         public Color(int id, string name) : this()
         {
-            Id = Id;
+            Id = id;
             Name = name;
         }
 
         public string Name { get; set; }
-        public ICollection<Car> Cars { get; set; }
+        public virtual ICollection<Car> Cars { get; set; }
 
     }
 }

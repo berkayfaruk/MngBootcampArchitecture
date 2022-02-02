@@ -12,9 +12,9 @@ namespace Core.Persistence.Repositories
         {
         }
 
-        public Entity(int ıd)
+        public Entity(int id)
         {
-            Id = ıd;
+            Id = id;
         }
 
         public int Id { get; set; }
